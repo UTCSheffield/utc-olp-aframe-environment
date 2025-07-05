@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/feiss/aframe-environment-component/76b2bbf3/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene fog inspector>
+      <a-assets>
+        <a-mixin id="checkpoint"></a-mixin>
+        <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
+      </a-assets>
+      <a-entity environment="preset: forest; sunPosition: 1 5 -2; seed:96"></a-entity>
+      <a-entity id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: teleport">
+        <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
+          <a-entity cursor position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                    material="color: #CCC; shader: flat;"></a-entity>
+        </a-entity>
+      </a-entity>
+      
+      <a-box  checkpoint position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+      
+      <a-entity position="1 0 1">
+        <a-cylinder checkpoint radius="1" height="0.1" position="0 0 -5.2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint radius="1" height="0.1" position="3 0 0" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint radius="1" height="0.1" position="-3 0 0" color="#39BB82"></a-cylinder>
+      </a-entity>      
+    </a-scene>
+  </body>
+</html>
